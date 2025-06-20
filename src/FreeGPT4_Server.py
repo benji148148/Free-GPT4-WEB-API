@@ -32,6 +32,9 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1000 * 1000 # 16 MB
 SETTINGS_FILE = "./data/settings.db"
 PROXIES_FILE = "./data/proxies.json"
 
+print("✅ SUPPORTED PROVIDERS:", [name for name in dir(g4f.Provider) if not name.startswith("__")])
+exit()
+
 # Available providers
 PROVIDERS = {
     "Auto": "",
