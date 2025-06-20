@@ -23,6 +23,18 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
+@app.route("/ivr", methods=["GET", "POST"])
+def ivr():
+    prompt = request.args.get("text") or request.form.get("text") or "שלום"
+
+    response = g4f.ChatCompletion.create(
+        model="gpt-4",  # נגיע לזה תכף
+        provider=g4f.Provider.You,  # תוכל לשנות ליציב אחר
+        messages=[{"role": "user", "content": prompt}]
+    )
+    
+    return response
+    
 UPLOAD_FOLDER = 'data/'
 
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
