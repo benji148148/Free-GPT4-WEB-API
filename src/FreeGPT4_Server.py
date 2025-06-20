@@ -35,7 +35,6 @@ PROXIES_FILE = "./data/proxies.json"
 # Available providers
 PROVIDERS = {
     "Auto": "",
-    "Aichat": g4f.Provider.Aichat,
     "Ails": g4f.Provider.Ails,
     "BlackBox": g4f.Provider.Blackbox,
     "Chatgpt4o": g4f.Provider.Chatgpt4o,
