@@ -32,32 +32,22 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1000 * 1000 # 16 MB
 SETTINGS_FILE = "./data/settings.db"
 PROXIES_FILE = "./data/proxies.json"
 
-print("✅ SUPPORTED PROVIDERS:", [name for name in dir(g4f.Provider) if not name.startswith("__")])
-exit()
-
 # Available providers
 PROVIDERS = {
     "Auto": "",
-    "Ails": g4f.Provider.Ails,
-    "BlackBox": g4f.Provider.Blackbox,
-    "Chatgpt4o": g4f.Provider.Chatgpt4o,
-    "ChatGpt": g4f.Provider.ChatGpt,
-    "ChatGptt" : g4f.Provider.ChatGptt,
+    "Blackbox": g4f.Provider.Blackbox,
+    "BlackboxPro": g4f.Provider.BlackboxPro,
+    "DeepInfra": g4f.Provider.DeepInfra,
     "DeepInfraChat": g4f.Provider.DeepInfraChat,
-    "Glider": g4f.Provider.Glider,
-    "H2o": g4f.Provider.H2o,
+    "Gemini": g4f.Provider.Gemini,
+    "Groq": g4f.Provider.Groq,
     "HuggingChat": g4f.Provider.HuggingChat,
-    "Opchatgpts": g4f.Provider.Opchatgpts,
-    "OpenAssistant": g4f.Provider.OpenAssistant,
+    "HuggingFace": g4f.Provider.HuggingFace,
     "OpenaiChat": g4f.Provider.OpenaiChat,
-    "Raycast": g4f.Provider.Raycast,
-    "Theb": g4f.Provider.Theb,
-    "Wewordle": g4f.Provider.Wewordle,
+    "ThebApi": g4f.Provider.ThebApi,
+    "WeWordle": g4f.Provider.WeWordle,
     "You": g4f.Provider.You,
-    "Yqcloud": g4f.Provider.Yqcloud,
-    "Pizzagpt": g4f.Provider.Pizzagpt,
-    "HuggingChat": g4f.Provider.HuggingChat,
-    "HuggingFace": g4f.Provider.HuggingFace
+    "Yqcloud": g4f.Provider.Yqcloud
     
 }
 
