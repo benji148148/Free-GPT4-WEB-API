@@ -23,17 +23,19 @@ from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 
-@app.route("/ivr", methods=["GET", "POST"])
+@app.route("/", methods=["POST"])
+@app.route("/ivr", methods=["POST"])
 def ivr():
-    prompt = request.args.get("text") or request.form.get("text") or "שלום"
-
-    response = g4f.ChatCompletion.create(
-        model="gpt-4",  # נגיע לזה תכף
-        provider=g4f.Provider.You,  # תוכל לשנות ליציב אחר
-        messages=[{"role": "user", "content": prompt}]
-    )
-    
-    return response
+    prompt = request.form.get("srtext") or request.form.get("text") or "שלום!"
+    try:
+        response = g4f.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            provider=g4f.Provider.You,
+            messages=[{"role": "user", "content": prompt}]
+        )
+        return str(response)
+    except Exception as e:
+        return "שגיאה. נסה שוב מאוחר יותר", 200
     
 UPLOAD_FOLDER = 'data/'
 
